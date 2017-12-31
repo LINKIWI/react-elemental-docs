@@ -1,7 +1,7 @@
 {
-  "name": "react-static-boilerplate",
-  "version": "0.1.1",
-  "description": "Boilerplate for static websites in React",
+  "name": "react-elemental-docs",
+  "version": "1.0.1",
+  "description": "Documentation for react-elemental",
   "scripts": {
     "clean": "rm -rf dist/",
     "build": "webpack",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://git.kevinlin.info/personal/react-static-boilerplate.git"
+    "url": "https://github.com/LINKIWI/react-elemental-docs.git"
   },
   "author": "Kevin Lin <developer@kevinlin.info>",
   "license": "MIT",
