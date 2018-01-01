@@ -13,6 +13,11 @@ dotenv.config();
 const BUILD_ENV_VARS = [
   'NODE_ENV',
   'REACT_ELEMENTAL_VERSION',
+  'CLIENT_SENTRY_DSN',
+  'PIWIK_URL',
+  'PIWIK_SITE_ID',
+  'PIWIK_CLIENT_TRACKER_NAME',
+  'PIWIK_SERVER_TRACKER_NAME',
 ];
 
 const isProduction = process.env.NODE_ENV === 'production';

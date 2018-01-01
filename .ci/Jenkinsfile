@@ -15,6 +15,10 @@ pipeline {
                     environment {
                         NODE_ENV = 'production'
                         CLIENT_SENTRY_DSN = credentials('react-elemental-docs--sentry-dsn')
+                        PIWIK_URL = 'https://analytics.kevinlin.info'
+                        PIWIK_SITE_ID = '4'
+                        PIWIK_CLIENT_TRACKER_NAME = 'client'
+                        PIWIK_SERVER_TRACKER_NAME = 'server'
                         REACT_ELEMENTAL_VERSION = sh(
                             script: 'cat package.json | jq -r \'.dependencies[\"react-elemental\"]\' | cut -c2-',
                             returnStdout: true
