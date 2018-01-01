@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker 'docker.internal.kevinlin.info/infra/ci-base:0.0.5'
+        docker 'docker.internal.kevinlin.info/infra/ci-base:0.0.6'
     }
 
     stages {
@@ -11,6 +11,18 @@ pipeline {
         }
         stage('Test') {
             parallel {
+                stage('Build') {
+                    environment {
+                        NODE_ENV = 'production'
+                        REACT_ELEMENTAL_VERSION = sh(
+                            script: 'cat package.json | jq -r \'.dependencies[\"react-elemental\"]\' | cut -c2-',
+                            returnStdout: true
+                        ).trim()
+                    }
+                    steps {
+                        sh 'npm run build'
+                    }
+                }
                 stage('Lint') {
                     steps {
                         sh 'npm run lint'
@@ -27,6 +39,7 @@ pipeline {
 
     post {
         always {
+            archive 'dist/index.html'
             deleteDir()
         }
     }
