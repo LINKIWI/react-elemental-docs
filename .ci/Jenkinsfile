@@ -14,6 +14,7 @@ pipeline {
                 stage('Build') {
                     environment {
                         NODE_ENV = 'production'
+                        CLIENT_SENTRY_DSN = credentials('react-elemental-docs--sentry-dsn')
                         REACT_ELEMENTAL_VERSION = sh(
                             script: 'cat package.json | jq -r \'.dependencies[\"react-elemental\"]\' | cut -c2-',
                             returnStdout: true
