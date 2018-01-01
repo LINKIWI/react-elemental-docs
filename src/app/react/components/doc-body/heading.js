@@ -31,7 +31,7 @@ export default class Heading extends Component {
       <div
         onMouseEnter={this.handleHoverChange(true)}
         onMouseLeave={this.handleHoverChange(false)}
-        style={{ display: 'inline-block' }}
+        style={{ display: 'inline' }}
       >
         <Text
           size="epsilon"
