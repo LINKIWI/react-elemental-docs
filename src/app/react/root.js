@@ -9,7 +9,7 @@ import { setWindowDimensions } from 'app/redux/actions/context';
 /**
  * Application root, containing some abstractions that would otherwise be hardcoded into HTML.
  */
-class Root extends Component {
+export class Root extends Component {
   static propTypes = {
     handleWindowDimensionsChange: PropTypes.func.isRequired,
   };
