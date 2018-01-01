@@ -3,20 +3,14 @@ import PropTypes from 'prop-types';
 import { Spacing } from 'react-elemental';
 import DocBody from 'app/react/components/doc-body';
 import Header from 'app/react/components/header';
+import Unknown from 'app/react/components/doc-body/unknown';
 import COMPONENT_DETAILS from 'resources/data/components';
 
 /**
  * Abstraction over selecting the correct Elemental UI component for which to render documentation.
  */
 const DocBodyContainer = ({ selected }) => {
-  const {
-    meta: { name, description, props },
-    source,
-    example,
-    content,
-  } = COMPONENT_DETAILS[selected];
-
-  // TODO || with default component if component doesn't exist
+  const { meta, source, example, content } = COMPONENT_DETAILS[selected] || {};
 
   return (
     <div>
@@ -24,14 +18,18 @@ const DocBodyContainer = ({ selected }) => {
         <Header />
       </Spacing>
 
-      <DocBody
-        name={name}
-        description={description}
-        props={props}
-        content={content}
-        source={source}
-        example={example}
-      />
+      {meta ? (
+        <DocBody
+          name={meta.name}
+          description={meta.description}
+          props={meta.props}
+          content={content}
+          source={source}
+          example={example}
+        />
+      ) : (
+        <Unknown />
+      )}
     </div>
   );
 };

@@ -6,8 +6,6 @@ import DocBodyContainer from 'app/react/containers/doc-body';
 import Sidebar from 'app/react/components/sidebar';
 import { SIDEBAR_WIDTH } from 'app/styles/sidebar';
 
-// TODO if component name is invalid/doesn't exist?
-
 /**
  * Container for rendering documentation for a specific component.
  */
