@@ -12,7 +12,7 @@ const About = () => (
   <div>
     <Spacing size="large" bottom>
       <Header
-        additionalLinks={[
+        additionalBreadcrumbs={[
           { text: 'About', href: '/' },
         ]}
       />
