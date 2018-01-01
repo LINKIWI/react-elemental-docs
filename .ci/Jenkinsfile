@@ -20,7 +20,7 @@ pipeline {
                         PIWIK_CLIENT_TRACKER_NAME = 'client'
                         PIWIK_SERVER_TRACKER_NAME = 'server'
                         REACT_ELEMENTAL_VERSION = sh(
-                            script: 'cat package.json | jq -r \'.dependencies[\"react-elemental\"]\' | cut -c2-',
+                            script: 'cat package.json | jq -r \'.dependencies[\"react-elemental\"]\'',
                             returnStdout: true
                         ).trim()
                     }
