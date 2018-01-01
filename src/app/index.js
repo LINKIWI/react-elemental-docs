@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { bootstrap } from 'react-elemental';
 import karlaBold from 'react-elemental-fonts/karla-bold';
 import karlaRegular from 'react-elemental-fonts/karla-regular';
 import sourceCodeProMedium from 'react-elemental-fonts/source-code-pro-medium';
 import sourceCodeProRegular from 'react-elemental-fonts/source-code-pro-regular';
+import { createBrowserHistory } from 'history';
 import Root from 'app/react/root';
 import store from 'app/redux/store';
 
@@ -23,14 +24,16 @@ export default class App extends Component {
         bold: sourceCodeProMedium,
       },
     });
+
+    this.history = createBrowserHistory();
   }
 
   render() {
     return (
       <Provider store={store}>
-        <BrowserRouter>
+        <Router history={this.history}>
           <Root />
-        </BrowserRouter>
+        </Router>
       </Provider>
     );
   }

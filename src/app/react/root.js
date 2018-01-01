@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
+import { withRouter } from 'react-router';
 import routes from 'app/react/routes';
 import { setWindowDimensions } from 'app/redux/actions/context';
 
@@ -46,4 +47,4 @@ const mapDispatchToProps = (dispatch) => ({
   handleWindowDimensionsChange: (width, height) => dispatch(setWindowDimensions(width, height)),
 });
 
-export default connect(null, mapDispatchToProps)(Root);
+export default withRouter(connect(null, mapDispatchToProps)(Root));
