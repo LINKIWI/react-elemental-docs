@@ -10,7 +10,7 @@ const initialState = {
 const setWindowDimensionsReducer = (state, action) => {
   const { width, height } = action.payload;
 
-  const isCompact = width < 600;
+  const isCompact = width < 950;
 
   return {
     ...state,
