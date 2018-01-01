@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { colors, Spacing, Text } from 'react-elemental';
-import SyntaxHighlighter from 'react-syntax-highlighter/prism';
-import { atomDark } from 'react-syntax-highlighter/styles/prism';
+import SyntaxHighlighter from 'react-syntax-highlighter/prism-light';
+import atomDark from 'react-syntax-highlighter/styles/prism/atom-dark';
 
 /**
  * Rendering component for a block of code (enclosed by three backticks).
