@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
 import { Spacing } from 'react-elemental';
 import DocBody from 'app/react/components/doc-body';
 import Header from 'app/react/components/header';
@@ -20,17 +21,33 @@ const DocBodyContainer = ({ selected, isCompact }) => {
       </Spacing>
 
       {meta ? (
-        <DocBody
-          name={meta.name}
-          description={meta.description}
-          props={meta.props}
-          content={content}
-          source={source}
-          example={example}
-          isCompact={isCompact}
-        />
+        <div>
+          <Helmet>
+            <title>
+              {`${meta.name} - react-elemental`}
+            </title>
+          </Helmet>
+
+          <DocBody
+            name={meta.name}
+            description={meta.description}
+            props={meta.props}
+            content={content}
+            source={source}
+            example={example}
+            isCompact={isCompact}
+          />
+        </div>
       ) : (
-        <Unknown />
+        <div>
+          <Helmet>
+            <title>
+              Component Not Found - react-elemental
+            </title>
+          </Helmet>
+
+          <Unknown />
+        </div>
       )}
     </div>
   );
