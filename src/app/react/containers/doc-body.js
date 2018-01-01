@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Spacing } from 'react-elemental';
 import DocBody from 'app/react/components/doc-body';
@@ -9,7 +10,7 @@ import COMPONENT_DETAILS from 'resources/data/components';
 /**
  * Abstraction over selecting the correct Elemental UI component for which to render documentation.
  */
-const DocBodyContainer = ({ selected }) => {
+const DocBodyContainer = ({ selected, isCompact }) => {
   const { meta, source, example, content } = COMPONENT_DETAILS[selected] || {};
 
   return (
@@ -26,6 +27,7 @@ const DocBodyContainer = ({ selected }) => {
           content={content}
           source={source}
           example={example}
+          isCompact={isCompact}
         />
       ) : (
         <Unknown />
@@ -36,10 +38,15 @@ const DocBodyContainer = ({ selected }) => {
 
 DocBodyContainer.propTypes = {
   selected: PropTypes.string,
+  isCompact: PropTypes.bool.isRequired,
 };
 
 DocBodyContainer.defaultProps = {
   selected: null,
 };
 
-export default DocBodyContainer;
+const mapStateToProps = ({ context }) => ({
+  isCompact: context.isCompact,
+});
+
+export default connect(mapStateToProps)(DocBodyContainer);

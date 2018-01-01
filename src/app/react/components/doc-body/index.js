@@ -17,6 +17,7 @@ const DocBody = ({
   content,
   source,
   example,
+  isCompact,
 }) => (
   <div>
     <Spacing size="large" bottom>
@@ -39,7 +40,7 @@ const DocBody = ({
     )}
 
     <Spacing size="large" bottom>
-      <CodeExample source={source} example={example} />
+      <CodeExample source={source} example={example} isCompact={isCompact} />
     </Spacing>
   </div>
 );
@@ -57,6 +58,8 @@ DocBody.propTypes = {
   source: PropTypes.string.isRequired,
   // React component corresponding to the source to instantiate/render
   example: PropTypes.func.isRequired,
+  // True to render a horizontally compact version of the component; false otherwise
+  isCompact: PropTypes.bool.isRequired,
 };
 
 DocBody.defaultProps = {
