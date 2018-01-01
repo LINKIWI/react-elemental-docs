@@ -1,144 +1,78 @@
-# react-static-boilerplate
+# react-elemental-docs
 
-This project provides base configuration and boilerplate for a simple, ES6/JSX, static, client-only React SPA.
+This project is the documentation site for the [`react-elemental`](https://github.com/LINKIWI/react-elemental) UI library. Documentation source files are located in `src/docs`.
 
-## Instructions
+Please note that the README documentation that follows is largely intended to be internal, and is relevant only to the development of the `react-elemental-docs` site itself.
 
-### Containers and components
+## Adding docs for a new component
 
-Ideally, components should be dumb and presentational. Containers may contain isolated state, or may retrieve it from the global Redux store (ensuring to pull state up as much as possible). Container children may include other containers and components, but a container should never be the child of a component.
+1. Make sure that the declared version of `react-elemental` is pinned and bumped appropriately in `dependencies` of `package.json`. CI will version the documentation based on the semver string expressed there.
+2. Create a new documentation directory for the component in `src/docs/components/<new component name>`.
+3. In this directory, you need to create a metadata file `meta.js`, free-form notes file `content.md`, example usage component `example.js`, and an importable `index.js` that exports all of these items.
+4. Update `resources/data/sidebar.js` to reflect the value, label, and URL for the new component.
+5. Update `resources/data/components.js` to include the new component documentation's `index.js` file.
 
-Components are in `app/react/components`. Containers are in `app/react/containers`.
+#### Metadata
 
-### Adding a new Redux action/reducer
+The `meta.js` file should default-export an object describing metadata about the documented component with the following properties:
 
-Add a new action with factory functions for serialized action objects:
+|Key|Value|
+|-|-|
+|`name`|Name of the component.|
+|`description`|One-line description of the component.|
+|`props[].key`|Name of a prop accepted by the component.|
+|`props[].description`|Description of that prop.|
+|`props[].defaultValue`|Default value of that prop, as it appears in `defaultProps`. Omit if the prop is required.|
 
-```diff
-diff --git a/action.js b/action.js
-new file mode 100644
-index 0000000..da7e463
---- /dev/null
-+++ b/action.js
-@@ -0,0 +1,16 @@
-+export const ACTION_NAME = 'ACTION_NAME';
-+
-+export const actionCreator = (param) => ({
-+  type: ACTION_NAME,
-+  payload: { param },
-+});
+#### Notes
+
+The `content.md` file can contain arbitrary free-form Markdown which will be directly rendered into the component documentation page. It is useful for providing additional context on how the component works internally, how props should be used, etc. This section will not be rendered if `content.md` is empty.
+
+#### Example component
+
+The `example.js` file should default-export a standard React component that serves as an example usage of the documented component. Note that the documentation page will show this file's literal source code alongside the rendered component that the file describes.
+
+#### Index file
+
+The `index.js` file should take the following form:
+
+```javascript
+import meta from 'docs/components/<component name>/meta';
+import Example from 'docs/components/<component name>/example';
+import content from 'docs/components/<component name>/content.md';
+import source from '!raw-loader!./example';
+
+export default {
+  meta,
+  source,
+  content,
+  example: Example,
+};
 ```
 
-Add a corresponding reducer with an initial state for that reducer namespace and a mapping from action types to reduction functions:
-
-```diff
-diff --git a/reducer.js b/reducer.js
-new file mode 100644
-index 0000000..4cf0218
---- /dev/null
-+++ b/reducer.js
-@@ -0,0 +1,23 @@
-+import { ACTION_NAME } from 'app/redux/actions/action';
-+import createReducer from 'app/redux/reducers/create-reducer';
-+
-+const initialState = {
-+  state: false,
-+};
-+
-+const setTrue = (state) => ({
-+  ...state,
-+  state: true,
-+});
-+
-+const reducerMapping = {
-+  [ACTION_NAME]: setTrue,
-+};
-+
-+export default createReducer(reducerMapping, initialState);
-```
-
-Add the namespace to `app/redux/reducers/index.js`:
-
-```diff
-diff --git a/src/app/redux/reducers/index.js b/src/app/redux/reducers/index.js
-index f6ce50b..1aadb44 100644
---- a/src/app/redux/reducers/index.js
-+++ b/src/app/redux/reducers/index.js
-@@ -1,5 +1,8 @@
- import { combineReducers } from 'redux';
-+import reducerReducer from 'app/redux/reducers/reducer';
-
--const reducer = combineReducers({});
-+const reducer = combineReducers({
-+  reducer: reducerReducer,
-+});
-
- export default reducer;
-```
-
-You can optionally add middlware:
-
-```diff
-diff --git a/middleware.js b/middleware.js
-new file mode 100644
-index 0000000..b95e039
---- /dev/null
-+++ b/middleware.js
-@@ -0,0 +1,12 @@
-+import { ACTION_NAME } from 'app/redux/actions/action';
-+import createMiddleware from 'app/redux/middleware/create-middleware';
-+
-+const middlewareMiddleware = (store, action) => {
-+  ...
-+};
-+
-+const middlewareMapping = {
-+  [ACTION_NAME]: middlewareMiddleware,
-+};
-+
-+export default createMiddleware(middlewareMapping);
-```
-
-Followed by adding it to the list of known middleware:
-
-```diff
-diff --git a/src/app/redux/middleware/index.js b/src/app/redux/middleware/index.js
-index 63bc2be..fdb88a1 100644
---- a/src/app/redux/middleware/index.js
-+++ b/src/app/redux/middleware/index.js
-@@ -1,3 +1,7 @@
--const middleware = [];
-+import middlewareMiddleware from 'app/redux/middleware/middleware';
-+
-+const middleware = [
-+  middlewareMiddleware,
-+];
-
- export default middleware;
-```
-
-## Usage
-
-### Forking a new project
-
-```bash
-$ git clone git@git.kevinlin.info:personal/react-static-boilerplate.git my-project
-$ cd my-project
-$ rm -rf .git && git init
-```
-
-### Development
+## Development
 
 ```bash
 $ npm install
-$ npm run start
-# This starts webpack-dev-server on port 8080.
-# Changes to source are live-reloaded.
+$ npm run start  # Starts a live-reload development server at port 8080
 ```
 
-### Deployment
+## Building
+
+The build process injects a few environment variables from the shell:
+
+|Environment variable|Description|
+|-|-|
+|`NODE_ENV`|Node environment; `production` on CI.|
+|`REACT_ELEMENTAL_VERSION`|Version of the `react-elemental` library for which the documentation is valid. This is read automatically from the declared version in `package.json` on CI.|
+|`CLIENT_SENTRY_DSN`|Client-side Sentry DSN. Stored as a secret in CI and automatically injected.|
+|`PIWIK_URL`|Analytics hostname.|
+|`PIWIK_SITE_ID`|Analytics site ID.|
+|`PIWIK_CLIENT_TRACKER_NAME`|Name of the client tracker resource.|
+|`PIWIK_SERVER_TRACKER_NAME`|Name of the server tracker resource.|
+
+After the above are defined:
 
 ```bash
-$ NODE_ENV=production npm run build
-# This creates a minified HTML file with all JS inlined at dist/index.html.
+$ npm run build
 ```
