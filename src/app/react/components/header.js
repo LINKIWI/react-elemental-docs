@@ -36,9 +36,11 @@ class Header extends Component {
   componentWillMount() {
     // "Calculate" the navigation breadcrumbs by slicing the current URL path
     const pathComponents = window.location.pathname.split('/').filter(Boolean);
-    this.links = pathComponents.map((component, idx) => ({
+    const basePathComponents = (process.env.ROUTING_BASE_PATH || '/').split('/').filter(Boolean);
+    const normalizedPathComponents = pathComponents.slice(basePathComponents.length);
+    this.links = normalizedPathComponents.map((component, idx) => ({
       text: component.replace(/-/g, ' '),
-      href: `/${pathComponents.slice(0, idx + 1).join('/')}`,
+      href: `/${normalizedPathComponents.slice(0, idx + 1).join('/')}`,
     }));
   }
 
@@ -72,6 +74,7 @@ class Header extends Component {
         <div style={{ alignItems: 'center', display: 'flex', justifyContent: 'space-between' }}>
           <Breadcrumbs
             links={[
+              { text: 'react-elemental docs', href: '/' },
               ...this.links,
               ...additionalBreadcrumbs,
             ]}
