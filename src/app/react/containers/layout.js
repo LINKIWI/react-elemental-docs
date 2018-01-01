@@ -25,9 +25,10 @@ class LayoutContainer extends Component {
 
   state = { isMenuVisible: false };
 
-  handleMenuClick = () => this.setState({ isMenuVisible: true });
-
-  handleCollapseClick = () => this.setState({ isMenuVisible: false });
+  setMenuVisibility = (isMenuVisible) => (evt) => {
+    evt.preventDefault();
+    this.setState({ isMenuVisible });
+  };
 
   render() {
     const { selectedSidebarItem, children, isCompact } = this.props;
@@ -62,7 +63,7 @@ class LayoutContainer extends Component {
             <Spacing top right left>
               <Button
                 text="Collapse"
-                onClick={this.handleCollapseClick}
+                onClick={this.setMenuVisibility(false)}
                 style={{ width: '100%' }}
                 secondary
               />
@@ -73,16 +74,17 @@ class LayoutContainer extends Component {
         </div>
 
         {isCompact && (
-          <Spacing style={{ position: 'fixed' }} top left>
-            <Menu
-              onClick={this.handleMenuClick}
-              style={{
-                color: colors.gray20,
-                cursor: 'pointer',
-                fontSize: sizes.epsilon,
-              }}
-            />
-          </Spacing>
+          <a href="#" onClick={this.setMenuVisibility(true)}>
+            <Spacing style={{ position: 'fixed' }} top left>
+              <Menu
+                style={{
+                  color: colors.gray20,
+                  cursor: 'pointer',
+                  fontSize: sizes.epsilon,
+                }}
+              />
+            </Spacing>
+          </a>
         )}
 
         <div style={{ marginLeft: contentMargin, transition: 'all 0.15s ease' }}>
