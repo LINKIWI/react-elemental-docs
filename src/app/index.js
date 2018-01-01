@@ -53,14 +53,14 @@ export default class App extends Component {
     }
 
     // Piwik and react-router initialization
-    const piwik = PIWIK_URL && PiwikReactRouter({
+    const piwik = PIWIK_URL && isProd && PiwikReactRouter({
       url: PIWIK_URL,
       siteId: PIWIK_SITE_ID,
       clientTrackerName: PIWIK_CLIENT_TRACKER_NAME,
       serverTrackerName: PIWIK_SERVER_TRACKER_NAME,
     });
     const browserHistory = createBrowserHistory({ basename: ROUTING_BASE_PATH });
-    this.history = (piwik && isProd) ? piwik.connectToHistory(browserHistory) : browserHistory;
+    this.history = piwik ? piwik.connectToHistory(browserHistory) : browserHistory;
   }
 
   render() {
