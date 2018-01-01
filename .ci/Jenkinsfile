@@ -1,6 +1,9 @@
 pipeline {
     agent {
-        docker 'docker.internal.kevinlin.info/infra/ci-base:0.0.6'
+        docker {
+            image 'docker.internal.kevinlin.info/infra/ci-base:0.0.6'
+            args '-v $HOME/.ssh:/home/jenkins/.ssh:ro'
+        }
     }
 
     stages {
@@ -40,11 +43,27 @@ pipeline {
                 }
             }
         }
+        stage('Deploy') {
+            steps {
+                sh 'mv dist /tmp/react-elemental-docs'
+                sh 'git fetch --all'
+                sh 'git checkout gh-pages'
+                sh 'git reset --hard origin/gh-pages'
+                sh 'mv /tmp/react-elemental-docs/index.html index.html'
+                sh 'cp index.html 404.html'
+                sh 'git add .'
+                sh 'git status'
+                sh "git commit -m ${GIT_BRANCH}:${GIT_COMMIT} || :"
+                sh 'git remote add github git@github.com:LINKIWI/react-elemental-docs.git'
+                sh 'git push origin HEAD'
+                sh 'git push github HEAD'
+            }
+        }
     }
 
     post {
         always {
-            archive 'dist/index.html'
+            archive 'index.html'
             deleteDir()
         }
     }
