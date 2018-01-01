@@ -13,6 +13,7 @@ dotenv.config();
 const BUILD_ENV_VARS = [
   'NODE_ENV',
   'REACT_ELEMENTAL_VERSION',
+  'ROUTING_BASE_PATH',
   'CLIENT_SENTRY_DSN',
   'PIWIK_URL',
   'PIWIK_SITE_ID',

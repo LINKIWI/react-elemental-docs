@@ -17,6 +17,7 @@ import store from 'app/redux/store';
 
 const {
   NODE_ENV,
+  ROUTING_BASE_PATH = '/',
   CLIENT_SENTRY_DSN,
   PIWIK_URL,
   PIWIK_SITE_ID,
@@ -58,11 +59,7 @@ export default class App extends Component {
       clientTrackerName: PIWIK_CLIENT_TRACKER_NAME,
       serverTrackerName: PIWIK_SERVER_TRACKER_NAME,
     });
-    // Depending on the deployment environment, the root path might not be exactly '/' (e.g. on
-    // Github Pages). Here, set the base path according to whatever the path is before the
-    // application has the opportunity to mount, so that all relative paths work correctly
-    // independent of the deployment environment.
-    const browserHistory = createBrowserHistory({ basename: window.location.pathname });
+    const browserHistory = createBrowserHistory({ basename: ROUTING_BASE_PATH });
     this.history = (piwik && isProd) ? piwik.connectToHistory(browserHistory) : browserHistory;
   }
 
