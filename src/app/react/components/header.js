@@ -5,7 +5,7 @@ import { Spacing, Tag } from 'react-elemental';
 import Breadcrumbs from 'app/react/components/ui/breadcrumbs';
 
 const DEFAULT_EXTERNAL_LINKS = [
-  { text: 'v1.0.1' },
+  { text: `v${process.env.REACT_ELEMENTAL_VERSION || '?.?.?'}` },
   { text: 'Github', href: 'https://github.com/LINKIWI/react-elemental' },
   { text: 'npm', href: 'https://www.npmjs.com/package/react-elemental' },
 ];

@@ -12,6 +12,7 @@ dotenv.config();
 // process.env, allowing Node-like environment variable access in client-side logic.
 const BUILD_ENV_VARS = [
   'NODE_ENV',
+  'REACT_ELEMENTAL_VERSION',
 ];
 
 const isProduction = process.env.NODE_ENV === 'production';
