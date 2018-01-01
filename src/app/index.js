@@ -58,7 +58,11 @@ export default class App extends Component {
       clientTrackerName: PIWIK_CLIENT_TRACKER_NAME,
       serverTrackerName: PIWIK_SERVER_TRACKER_NAME,
     });
-    const browserHistory = createBrowserHistory();
+    // Depending on the deployment environment, the root path might not be exactly '/' (e.g. on
+    // Github Pages). Here, set the base path according to whatever the path is before the
+    // application has the opportunity to mount, so that all relative paths work correctly
+    // independent of the deployment environment.
+    const browserHistory = createBrowserHistory({ basename: window.location.pathname });
     this.history = (piwik && isProd) ? piwik.connectToHistory(browserHistory) : browserHistory;
   }
 
