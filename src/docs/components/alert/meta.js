@@ -5,12 +5,12 @@ export default {
     {
       key: '`type`',
       description: 'One of `info`, `success`, `warn`, or `error`, denoting the alert type.',
-      defaultValue: '`info`',
+      defaultValue: '`\'info\'`',
     },
     {
       key: '`size`',
       description: 'One of `alpha` or `beta`, denoting the size of the alert.',
-      defaultValue: '`alpha`',
+      defaultValue: '`\'alpha\'`',
     },
     {
       key: '`title`',

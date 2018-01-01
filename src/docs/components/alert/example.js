@@ -45,8 +45,8 @@ export default class AlertExample extends Component {
             type="error"
             title="There was an error."
             message={
-              'Inform the user that his or her action resulted in an error, and convey appropriate ' +
-              'action items that can be taken to resolve the situation.'
+              'Inform the user that his or her action resulted in an error, and convey ' +
+              'appropriate action items that can be taken to resolve the situation.'
             }
           />
         </Spacing>
