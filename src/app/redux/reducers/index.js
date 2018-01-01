@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import sampleReducer from 'app/redux/reducers/sample';
+import contextReducer from 'app/redux/reducers/context';
 
 const reducer = combineReducers({
-  sample: sampleReducer,
+  context: contextReducer,
 });
 
 export default reducer;
