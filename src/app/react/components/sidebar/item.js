@@ -44,20 +44,20 @@ class SidebarItem extends Component {
     })();
 
     return (
-      <Spacing
-        size="small"
-        style={{
-          backgroundColor,
-          cursor: 'pointer',
-          transition: 'all 0.15s ease',
-        }}
-        onMouseEnter={this.handleHoverChange(true)}
-        onMouseLeave={this.handleHoverChange(false)}
-        top
-        bottom
-        padding
-      >
-        <a href={href} onClick={this.handleClick} style={{ textDecoration: 'none' }}>
+      <a href={href} onClick={this.handleClick} style={{ textDecoration: 'none' }}>
+        <Spacing
+          size="small"
+          style={{
+            backgroundColor,
+            cursor: 'pointer',
+            transition: 'all 0.15s ease',
+          }}
+          onMouseEnter={this.handleHoverChange(true)}
+          onMouseLeave={this.handleHoverChange(false)}
+          top
+          bottom
+          padding
+        >
           <Spacing left right padding>
             <Text
               color={isSelected ? colors.gray70 : colors.gray15}
@@ -66,8 +66,8 @@ class SidebarItem extends Component {
               {label}
             </Text>
           </Spacing>
-        </a>
-      </Spacing>
+        </Spacing>
+      </a>
     );
   }
 }
