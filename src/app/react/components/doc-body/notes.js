@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Spacing, Text } from 'react-elemental';
+import { Spacing } from 'react-elemental';
+import Heading from 'app/react/components/doc-body/heading';
 import Markdown from 'app/react/components/markdown';
 
 /**
@@ -9,10 +10,9 @@ import Markdown from 'app/react/components/markdown';
 const Notes = ({ content }) => (
   <div>
     <Spacing size="small" bottom>
-      <Text color="gray70" uppercase bold>
-        Notes
-      </Text>
+      <Heading text="Notes" hash="notes" />
     </Spacing>
+
     <Markdown source={content} />
   </div>
 );

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Spacing, Text } from 'react-elemental';
+import Heading from 'app/react/components/doc-body/heading';
 import CodeBlock from 'app/react/components/markdown/code-block';
 
 /**
@@ -11,9 +12,7 @@ const CodeExample = ({ source, example: Example, isCompact }) => (
     <div style={{ display: 'flex', flexDirection: isCompact ? 'column' : 'row' }}>
       <div style={{ width: isCompact ? '100%' : '50%' }}>
         <Spacing size="small" bottom>
-          <Text color="gray70" uppercase bold>
-            Example usage
-          </Text>
+          <Heading text="Example usage" hash="example" />
         </Spacing>
 
         <Spacing style={{ boxSizing: 'border-box' }} right={!isCompact} padding>

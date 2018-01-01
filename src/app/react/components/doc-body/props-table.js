@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Spacing, Text } from 'react-elemental';
+import Heading from 'app/react/components/doc-body/heading';
 import Markdown from 'app/react/components/markdown';
 
 /**
@@ -41,9 +42,7 @@ Cell.propTypes = {
 const PropsTable = ({ props: componentProps }) => (
   <div>
     <Spacing size="small" bottom>
-      <Text color="gray70" uppercase bold>
-        Component props
-      </Text>
+      <Heading text="Component props" hash="props" />
     </Spacing>
 
     <table style={{ width: '100%' }}>
