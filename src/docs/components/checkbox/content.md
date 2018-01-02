@@ -10,12 +10,12 @@ import { Checkbox } from 'react-elemental';
 
 class CheckboxController extends Component {
   state = { checked: false };
-  
+
   handleChange = (checked) => this.setState({ checked });
-  
+
   render() {
     const { checked } = this.state;
-  
+
     return (
       <Checkbox
         checked={checked}
