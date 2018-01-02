@@ -7,8 +7,8 @@ import CONSTANT_DETAILS from 'resources/data/constants';
 /**
  * Container for rendering documentation for a specific constant.
  */
-const ConstantDocContainer = ({ match: { params: { constant } } }) => (
-  <LayoutContainer selectedSidebarItem={`constant--${constant}`}>
+const ConstantDocContainer = ({ match: { params: { constant } }, location: { pathname } }) => (
+  <LayoutContainer selectedSidebarItem={`constant--${constant}`} pathname={pathname}>
     <DocBodyContainer docItem={CONSTANT_DETAILS[constant]} />
   </LayoutContainer>
 );
@@ -18,6 +18,9 @@ ConstantDocContainer.propTypes = {
     params: PropTypes.shape({
       constant: PropTypes.string.isRequired,
     }).isRequired,
+  }).isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
   }).isRequired,
 };
 

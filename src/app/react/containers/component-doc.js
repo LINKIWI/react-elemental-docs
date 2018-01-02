@@ -7,8 +7,8 @@ import COMPONENT_DETAILS from 'resources/data/components';
 /**
  * Container for rendering documentation for a specific component.
  */
-const ComponentDocContainer = ({ match: { params: { component } } }) => (
-  <LayoutContainer selectedSidebarItem={`component--${component}`}>
+const ComponentDocContainer = ({ match: { params: { component } }, location: { pathname } }) => (
+  <LayoutContainer selectedSidebarItem={`component--${component}`} pathname={pathname}>
     <DocBodyContainer docItem={COMPONENT_DETAILS[component]} />
   </LayoutContainer>
 );
@@ -18,6 +18,9 @@ ComponentDocContainer.propTypes = {
     params: PropTypes.shape({
       component: PropTypes.string.isRequired,
     }).isRequired,
+  }).isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
   }).isRequired,
 };
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Spacing } from 'react-elemental';
-import Header from 'app/react/components/header';
 import Title from 'app/react/components/doc-body/title';
 import Markdown from 'app/react/components/markdown';
 import { about } from 'docs';
@@ -10,14 +9,6 @@ import { about } from 'docs';
  */
 const About = () => (
   <div>
-    <Spacing size="large" bottom>
-      <Header
-        additionalBreadcrumbs={[
-          { text: 'About', href: '/' },
-        ]}
-      />
-    </Spacing>
-
     <Spacing size="large" bottom>
       <Title
         name="react-elemental"

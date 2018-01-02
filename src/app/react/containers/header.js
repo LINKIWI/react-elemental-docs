@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Spacing, Tag } from 'react-elemental';
 import Breadcrumbs from 'app/react/components/ui/breadcrumbs';
@@ -13,34 +12,29 @@ const DEFAULT_EXTERNAL_LINKS = [
 /**
  * Universal header with navigation breadcrumbs and external links.
  */
-class Header extends Component {
+export default class Header extends Component {
   static propTypes = {
-    // Additional breadcrumb elements to append to the end of the calculated crumbs
-    additionalBreadcrumbs: PropTypes.arrayOf(PropTypes.shape({
-      text: PropTypes.string.isRequired,
-      href: PropTypes.string.isRequired,
-    })),
     // Array of external links to display on the right
     externalLinks: PropTypes.arrayOf(PropTypes.shape({
       text: PropTypes.string.isRequired,
       href: PropTypes.string,
     })),
+    pathname: PropTypes.string.isRequired,
     isCompact: PropTypes.bool.isRequired,
   };
 
   static defaultProps = {
-    additionalBreadcrumbs: [],
     externalLinks: DEFAULT_EXTERNAL_LINKS,
   };
 
-  componentWillMount() {
+  parseBreadcrumbLinks() {
+    const { pathname } = this.props;
+
     // "Calculate" the navigation breadcrumbs by slicing the current URL path
-    const pathComponents = window.location.pathname.split('/').filter(Boolean);
-    const basePathComponents = (process.env.ROUTING_BASE_PATH || '/').split('/').filter(Boolean);
-    const normalizedPathComponents = pathComponents.slice(basePathComponents.length);
-    this.links = normalizedPathComponents.map((component, idx) => ({
+    const pathComponents = pathname.split('/').filter(Boolean);
+    return pathComponents.map((component, idx) => ({
       text: component.replace(/-/g, ' '),
-      href: `/${normalizedPathComponents.slice(0, idx + 1).join('/')}`,
+      href: `/${pathComponents.slice(0, idx + 1).join('/')}`,
     }));
   }
 
@@ -67,7 +61,7 @@ class Header extends Component {
   };
 
   render() {
-    const { additionalBreadcrumbs, externalLinks, isCompact } = this.props;
+    const { externalLinks, isCompact } = this.props;
 
     return (
       <div>
@@ -75,8 +69,7 @@ class Header extends Component {
           <Breadcrumbs
             links={[
               { text: 'react-elemental docs', href: '/' },
-              ...this.links,
-              ...additionalBreadcrumbs,
+              ...this.parseBreadcrumbLinks(),
             ]}
           />
 
@@ -90,9 +83,3 @@ class Header extends Component {
     );
   }
 }
-
-const mapStateToProps = ({ context }) => ({
-  isCompact: context.isCompact,
-});
-
-export default connect(mapStateToProps)(Header);

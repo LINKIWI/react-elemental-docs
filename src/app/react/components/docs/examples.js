@@ -1,6 +1,5 @@
 import React from 'react';
 import { Spacing } from 'react-elemental';
-import Header from 'app/react/components/header';
 import Title from 'app/react/components/doc-body/title';
 import Markdown from 'app/react/components/markdown';
 import { examples } from 'docs';
@@ -10,10 +9,6 @@ import { examples } from 'docs';
  */
 const Examples = () => (
   <div>
-    <Spacing size="large" bottom>
-      <Header />
-    </Spacing>
-
     <Spacing size="large" bottom>
       <Title
         name="Examples"

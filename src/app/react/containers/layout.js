@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { colors, sizes, Button, Spacing } from 'react-elemental';
 import Menu from 'react-icons/lib/md/menu';
 import Sidebar from 'app/react/components/sidebar';
+import HeaderContainer from 'app/react/containers/header';
 import { SIDEBAR_WIDTH } from 'app/styles/sidebar';
 
 /**
@@ -15,6 +16,8 @@ class LayoutContainer extends Component {
     selectedSidebarItem: PropTypes.string,
     // Arbitrary children for the core page contents
     children: PropTypes.node.isRequired,
+    // Current client-side pathname
+    pathname: PropTypes.string.isRequired,
     // True if the display width is compact, and should reshape the layout accordingly
     isCompact: PropTypes.bool.isRequired,
   };
@@ -31,7 +34,7 @@ class LayoutContainer extends Component {
   };
 
   render() {
-    const { selectedSidebarItem, children, isCompact } = this.props;
+    const { selectedSidebarItem, children, pathname, isCompact } = this.props;
     const { isMenuVisible } = this.state;
 
     const baseStyle = {
@@ -90,6 +93,10 @@ class LayoutContainer extends Component {
         <div style={{ marginLeft: contentMargin, transition: 'all 0.15s ease' }}>
           <Spacing size="huge" left right padding>
             <Spacing top bottom padding>
+              <Spacing size="large" bottom>
+                <HeaderContainer pathname={pathname} isCompact={isCompact} />
+              </Spacing>
+
               {children}
             </Spacing>
           </Spacing>
