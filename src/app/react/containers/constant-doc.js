@@ -8,7 +8,7 @@ import CONSTANT_DETAILS from 'resources/data/constants';
  * Container for rendering documentation for a specific constant.
  */
 const ConstantDocContainer = ({ match: { params: { constant } } }) => (
-  <LayoutContainer selectedSidebarItem={constant}>
+  <LayoutContainer selectedSidebarItem={`constant--${constant}`}>
     <DocBodyContainer docItem={CONSTANT_DETAILS[constant]} />
   </LayoutContainer>
 );

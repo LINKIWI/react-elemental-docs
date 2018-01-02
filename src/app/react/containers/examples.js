@@ -14,7 +14,7 @@ const ExamplesContainer = () => (
       </title>
     </Helmet>
 
-    <LayoutContainer selectedSidebarItem="examples">
+    <LayoutContainer selectedSidebarItem="home--examples">
       <Examples />
     </LayoutContainer>
   </div>
