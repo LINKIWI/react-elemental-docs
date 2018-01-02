@@ -8,6 +8,7 @@ import modal from 'docs/components/modal';
 import selectList from 'docs/components/select-list';
 import spacing from 'docs/components/spacing';
 import spinner from 'docs/components/spinner';
+import tabs from 'docs/components/tabs';
 
 export default {
   alert,
@@ -20,4 +21,5 @@ export default {
   'select-list': selectList,
   spacing,
   spinner,
+  tabs,
 };
