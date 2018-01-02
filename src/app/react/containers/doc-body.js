@@ -6,38 +6,34 @@ import { Spacing } from 'react-elemental';
 import DocBody from 'app/react/components/doc-body';
 import Header from 'app/react/components/header';
 import Unknown from 'app/react/components/doc-body/unknown';
-import COMPONENT_DETAILS from 'resources/data/components';
 
 /**
  * Abstraction over selecting the correct Elemental UI component for which to render documentation.
  */
-const DocBodyContainer = ({ selected, isCompact }) => {
-  const { meta, source, example, content } = COMPONENT_DETAILS[selected] || {};
+const DocBodyContainer = ({ docItem: { meta, source, example, content } = {}, isCompact }) => (
+  <div>
+    <Spacing size="large" bottom>
+      <Header />
+    </Spacing>
 
-  return (
-    <div>
-      <Spacing size="large" bottom>
-        <Header />
-      </Spacing>
+    {meta ? (
+      <div>
+        <Helmet>
+          <title>
+            {`${meta.name} - react-elemental`}
+          </title>
+        </Helmet>
 
-      {meta ? (
-        <div>
-          <Helmet>
-            <title>
-              {`${meta.name} - react-elemental`}
-            </title>
-          </Helmet>
-
-          <DocBody
-            name={meta.name}
-            description={meta.description}
-            props={meta.props}
-            content={content}
-            source={source}
-            example={example}
-            isCompact={isCompact}
-          />
-        </div>
+        <DocBody
+          name={meta.name}
+          description={meta.description}
+          props={meta.props}
+          content={content}
+          source={source}
+          example={example}
+          isCompact={isCompact}
+        />
+      </div>
       ) : (
         <div>
           <Helmet>
@@ -49,17 +45,21 @@ const DocBodyContainer = ({ selected, isCompact }) => {
           <Unknown />
         </div>
       )}
-    </div>
-  );
-};
+  </div>
+);
 
 DocBodyContainer.propTypes = {
-  selected: PropTypes.string,
+  docItem: PropTypes.shape({
+    meta: PropTypes.object.isRequired,
+    source: PropTypes.string.isRequired,
+    example: PropTypes.func.isRequired,
+    content: PropTypes.string,
+  }),
   isCompact: PropTypes.bool.isRequired,
 };
 
 DocBodyContainer.defaultProps = {
-  selected: null,
+  docItem: undefined,
 };
 
 const mapStateToProps = ({ context }) => ({
