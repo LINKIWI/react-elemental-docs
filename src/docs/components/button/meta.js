@@ -9,7 +9,8 @@ export default {
     },
     {
       key: '`size`',
-      description: 'One of `alpha`, `beta`, or `gamma` describing the size of the button.',
+      description: 'One of `\'alpha\'`, `\'beta\'`, or `\'gamma\'` describing the size of the ' +
+        'button.',
       defaultValue: '`\'beta\'`',
     },
     {

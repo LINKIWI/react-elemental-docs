@@ -4,12 +4,13 @@ export default {
   props: [
     {
       key: '`type`',
-      description: 'One of `info`, `success`, `warn`, or `error`, denoting the alert type.',
+      description: 'One of `\'info\'`, `\'success\'`, `\'warn\'`, or `\'error\'`, denoting the ' +
+        'alert type.',
       defaultValue: '`\'info\'`',
     },
     {
       key: '`size`',
-      description: 'One of `alpha` or `beta`, denoting the size of the alert.',
+      description: 'One of `\'alpha\'` or `\'beta\'`, denoting the size of the alert.',
       defaultValue: '`\'alpha\'`',
     },
     {

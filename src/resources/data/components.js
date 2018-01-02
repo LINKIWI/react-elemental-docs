@@ -4,6 +4,7 @@ import checkbox from 'docs/components/checkbox';
 import label from 'docs/components/label';
 import link from 'docs/components/link';
 import loadingBar from 'docs/components/loading-bar';
+import modal from 'docs/components/modal';
 
 export default {
   alert,
@@ -12,4 +13,5 @@ export default {
   label,
   link,
   'loading-bar': loadingBar,
+  modal,
 };
