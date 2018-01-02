@@ -7,6 +7,7 @@ import loadingBar from 'docs/components/loading-bar';
 import modal from 'docs/components/modal';
 import selectList from 'docs/components/select-list';
 import spacing from 'docs/components/spacing';
+import spinner from 'docs/components/spinner';
 
 export default {
   alert,
@@ -18,4 +19,5 @@ export default {
   modal,
   'select-list': selectList,
   spacing,
+  spinner,
 };
