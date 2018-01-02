@@ -6,11 +6,11 @@ import { Spacing, Text } from 'react-elemental';
  * Rendering component for a list of elements.
  */
 const List = ({ ordered, children }) => {
-  const items = children.map((li, idx) => (
+  const items = Array.isArray(children) ? children.map((li, idx) => (
     <Spacing size="tiny" key={li.key} bottom={idx < children.length - 1}>
       {li}
     </Spacing>
-  ));
+  )) : children;
 
   return (
     <Spacing size="small" bottom>

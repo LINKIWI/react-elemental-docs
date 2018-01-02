@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Helmet } from 'react-helmet';
 import { withRouter } from 'react-router';
 import routes from 'app/react/routes';
 import { setWindowDimensions } from 'app/redux/actions/context';
 
 /**
- * Application root, containing some abstractions that would otherwise be hardcoded into HTML.
+ * Application root.
  */
 export class Root extends Component {
   static propTypes = {
@@ -29,13 +28,6 @@ export class Root extends Component {
   render() {
     return (
       <div>
-        <Helmet>
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-          />
-        </Helmet>
-
         {routes}
       </div>
     );
