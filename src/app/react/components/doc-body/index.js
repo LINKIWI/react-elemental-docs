@@ -27,7 +27,7 @@ const DocBody = ({
       />
     </Spacing>
 
-    {componentProps.length && (
+    {componentProps.length > 0 && (
       <Spacing size="large" bottom>
         <PropsTable props={componentProps} />
       </Spacing>
