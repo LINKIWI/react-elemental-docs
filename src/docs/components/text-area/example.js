@@ -4,7 +4,7 @@ import { Label, Spacing, TextArea } from 'react-elemental';
 export default class TextAreaExample extends Component {
   state = { value: '' };
 
-  handleChange = ({ value }) => this.setState({ value });
+  handleChange = ({ target: { value } }) => this.setState({ value });
 
   render() {
     const { value } = this.state;

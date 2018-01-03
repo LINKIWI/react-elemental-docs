@@ -11,6 +11,7 @@ import spinner from 'docs/components/spinner';
 import tabs from 'docs/components/tabs';
 import tag from 'docs/components/tag';
 import textArea from 'docs/components/text-area';
+import textField from 'docs/components/text-field';
 
 export default {
   alert,
@@ -26,4 +27,5 @@ export default {
   tabs,
   tag,
   'text-area': textArea,
+  'text-field': textField,
 };

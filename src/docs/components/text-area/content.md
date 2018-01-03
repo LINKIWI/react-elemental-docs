@@ -24,7 +24,7 @@ import { TextArea } from 'react-elemental';
 export default class ControlledTextArea extends Component {
   state = { value: '' };
 
-  handleChange = ({ value }) => this.setState({ value });
+  handleChange = ({ target: { value } }) => this.setState({ value });
 
   render() {
     const { value } = this.state;
