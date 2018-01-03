@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link as ElementalLink, Text } from 'react-elemental';
+import { Text } from 'react-elemental';
+import UILink from 'app/react/components/ui/link';
 
 /**
  * Rendering component for a link.
  */
 const Link = ({ href, children }) => (
   <Text color="primary" inline>
-    <ElementalLink activeColor="black" href={href}>
+    <UILink activeColor="black" href={href}>
       {children}
-    </ElementalLink>
+    </UILink>
   </Text>
 );
 

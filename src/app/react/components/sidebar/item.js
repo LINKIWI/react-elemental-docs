@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { colors, Spacing, Text } from 'react-elemental';
-import { withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import { SIDEBAR_BACKGROUND_COLOR, SIDEBAR_HOVER_COLOR } from 'app/styles/sidebar';
 
 /**
