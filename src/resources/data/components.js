@@ -10,6 +10,7 @@ import spacing from 'docs/components/spacing';
 import spinner from 'docs/components/spinner';
 import tabs from 'docs/components/tabs';
 import tag from 'docs/components/tag';
+import text from 'docs/components/text';
 import textArea from 'docs/components/text-area';
 import textField from 'docs/components/text-field';
 
@@ -26,6 +27,7 @@ export default {
   spinner,
   tabs,
   tag,
+  text,
   'text-area': textArea,
   'text-field': textField,
 };

@@ -16,9 +16,9 @@ export const SIDEBAR_COMPONENTS_LIST = [
   { value: 'component--spinner', label: 'Spinner', href: '/component/spinner' },
   { value: 'component--tabs', label: 'Tabs', href: '/component/tabs' },
   { value: 'component--tag', label: 'Tag', href: '/component/tag' },
+  { value: 'component--text', label: 'Text', href: '/component/text' },
   { value: 'component--text-area', label: 'TextArea', href: '/component/text-area' },
   { value: 'component--text-field', label: 'TextField', href: '/component/text-field' },
-  { value: 'component--text', label: 'Text', href: '/component/text' },
   { value: 'component--toast', label: 'Toast', href: '/component/toast' },
   { value: 'component--tooltip', label: 'Tooltip', href: '/component/tooltip' },
 ];
