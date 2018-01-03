@@ -10,6 +10,7 @@ import spacing from 'docs/components/spacing';
 import spinner from 'docs/components/spinner';
 import tabs from 'docs/components/tabs';
 import tag from 'docs/components/tag';
+import textArea from 'docs/components/text-area';
 
 export default {
   alert,
@@ -24,4 +25,5 @@ export default {
   spinner,
   tabs,
   tag,
+  'text-area': textArea,
 };
