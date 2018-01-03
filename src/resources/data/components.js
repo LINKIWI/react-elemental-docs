@@ -14,6 +14,7 @@ import text from 'docs/components/text';
 import textArea from 'docs/components/text-area';
 import textField from 'docs/components/text-field';
 import toast from 'docs/components/toast';
+import tooltip from 'docs/components/tooltip';
 
 export default {
   alert,
@@ -32,4 +33,5 @@ export default {
   'text-area': textArea,
   'text-field': textField,
   toast,
+  tooltip,
 };
