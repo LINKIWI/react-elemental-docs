@@ -64,6 +64,7 @@ The build process injects a few environment variables from the shell:
 |Environment variable|Description|
 |-|-|
 |`NODE_ENV`|Node environment; `production` on CI.|
+|`GIT_SHA`|Current Git SHA of this repository for which the docs are generated. Assigned as build SHA in CI.|
 |`REACT_ELEMENTAL_VERSION`|Version of the `react-elemental` library for which the documentation is valid. This is read automatically from the declared version in `package.json` on CI.|
 |`CLIENT_SENTRY_DSN`|Client-side Sentry DSN. Stored as a secret in CI and automatically injected.|
 |`PIWIK_URL`|Analytics hostname.|
