@@ -12,6 +12,7 @@ dotenv.config();
 // process.env, allowing Node-like environment variable access in client-side logic.
 const BUILD_ENV_VARS = [
   'NODE_ENV',
+  'GIT_SHA',
   'REACT_ELEMENTAL_VERSION',
   'ROUTING_BASE_PATH',
   'CLIENT_SENTRY_DSN',

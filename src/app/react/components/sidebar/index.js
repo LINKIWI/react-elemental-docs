@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import { Spacing } from 'react-elemental';
 import SidebarList from 'app/react/components/sidebar/list';
 import Heading from 'app/react/components/sidebar/heading';
+import Version from 'app/react/components/sidebar/version';
 import {
   SIDEBAR_HOME_LIST,
   SIDEBAR_COMPONENTS_LIST,
   SIDEBAR_CONSTANTS_LIST,
 } from 'resources/data/sidebar';
+
+const { GIT_SHA } = process.env;
 
 const Sidebar = ({ selected }) => (
   <Spacing size="small" top padding>
@@ -34,6 +37,12 @@ const Sidebar = ({ selected }) => (
         selected={selected}
       />
     </Spacing>
+
+    {GIT_SHA && (
+      <Spacing size="small" top bottom padding>
+        <Version sha={GIT_SHA} />
+      </Spacing>
+    )}
   </Spacing>
 );
 
