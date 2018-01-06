@@ -1,24 +1,24 @@
 import React from 'react';
-import { Spacing, Spinner, Text, colors } from 'react-elemental';
+import { Pulsator, Spacing, Text, colors } from 'react-elemental';
 
-const SPINNER_SIZES = [
+const PULSATOR_SIZES = [
   'alpha',
   'beta',
   'gamma',
   'delta',
 ];
 
-const SpinnerExample = () => (
+const PulsatorExample = () => (
   <div>
     <Spacing bottom>
-      {SPINNER_SIZES.map((size) => (
+      {PULSATOR_SIZES.map((size) => (
         <Spacing
           key={size}
           style={{ alignItems: 'center', display: 'flex' }}
           bottom
         >
           <div style={{ display: 'flex', justifyContent: 'center', width: '50px' }}>
-            <Spinner size={size} />
+            <Pulsator size={size} />
           </div>
           <Text color="gray50" size="kilo" uppercase bold>
             {`${size} size`}
@@ -29,7 +29,7 @@ const SpinnerExample = () => (
 
     <Spacing size="small" bottom>
       <Spacing size="small" right inline>
-        <Spinner size="delta" color={colors.green} />
+        <Pulsator size="delta" color={colors.green} />
       </Spacing>
       <Text color="gray50" size="kilo" uppercase bold inline>
         Succeeding
@@ -38,7 +38,7 @@ const SpinnerExample = () => (
 
     <Spacing size="small" bottom>
       <Spacing size="small" right inline>
-        <Spinner size="delta" color={colors.red} />
+        <Pulsator size="delta" color={colors.red} />
       </Spacing>
       <Text color="gray50" size="kilo" uppercase bold inline>
         Erroring
@@ -47,7 +47,7 @@ const SpinnerExample = () => (
 
     <Spacing size="small" bottom>
       <Spacing size="small" right inline>
-        <Spinner size="delta" color={colors.orange} />
+        <Pulsator size="delta" color={colors.orange} />
       </Spacing>
       <Text color="gray50" size="kilo" uppercase bold inline>
         Why not orange?
@@ -56,7 +56,7 @@ const SpinnerExample = () => (
 
     <Spacing size="small" bottom>
       <Spacing size="small" right inline>
-        <Spinner size="delta" color={colors.purple} transparent />
+        <Pulsator size="delta" color={colors.purple} transparent />
       </Spacing>
       <Text color="gray50" size="kilo" uppercase bold inline>
         Transparent background
@@ -65,7 +65,7 @@ const SpinnerExample = () => (
 
     <Spacing size="small" bottom>
       <Spacing size="small" right inline>
-        <Spinner size="delta" color={colors.green} pulsate={false} />
+        <Pulsator size="delta" color={colors.green} inactive />
       </Spacing>
       <Text color="gray50" size="kilo" uppercase bold inline>
         Disabled pulsation
@@ -74,4 +74,4 @@ const SpinnerExample = () => (
   </div>
 );
 
-export default SpinnerExample;
+export default PulsatorExample;

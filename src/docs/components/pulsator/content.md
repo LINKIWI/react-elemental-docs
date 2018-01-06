@@ -1,1 +1,1 @@
-Usage of a `Spinner` is advised when there is no clearly defined container, and the indeterminate progress indicated by the `Spinner` is relevant only to a single component rather than a container of components. Usage of a `LoadingBar` is more appropriate when there is a clearly defined container and the progress is relevant to the entire container.
+A `Pulsator` serves primarily as an indeterminate activity indicator. For indeterminate progress indicators, a [LoadingBar](!local!/component/loading-bar) or [Spinner](!local!/component/spinner) may be more appropriate.
