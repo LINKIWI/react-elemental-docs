@@ -5,6 +5,7 @@ import label from 'docs/components/label';
 import link from 'docs/components/link';
 import loadingBar from 'docs/components/loading-bar';
 import modal from 'docs/components/modal';
+import pulsator from 'docs/components/pulsator';
 import selectList from 'docs/components/select-list';
 import spacing from 'docs/components/spacing';
 import spinner from 'docs/components/spinner';
@@ -24,6 +25,7 @@ export default {
   link,
   'loading-bar': loadingBar,
   modal,
+  pulsator,
   'select-list': selectList,
   spacing,
   spinner,
