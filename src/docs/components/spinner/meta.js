@@ -4,28 +4,33 @@ export default {
     'container in the interface.',
   props: [
     {
-      key: '`color`',
-      description: 'Spinner pulsation color constant or CSS color expression literal.',
+      key: '`size`',
+      description: 'One of `\'alpha\'`, `\'beta\'`, `\'gamma\'`, or `\'delta\'` describing the ' +
+      'size (diameter) of the spinner.',
+      defaultValue: '`\'alpha\'`',
+    },
+    {
+      key: '`ringColor`',
+      description: 'Color constant or CSS expression literal describing the color of the spinner ' +
+        'ring.',
+      defaultValue: '`colors.gray5`',
+    },
+    {
+      key: '`accentColor`',
+      description: 'Color constant or CSS expression literal describing the color of the ' +
+        'spinning highlight within the ring.',
       defaultValue: '`colors.primary`',
     },
     {
-      key: '`size`',
-      description: 'One of `\'alpha\'`, `\'beta\'`, `\'gamma\'`, or `\'delta\'` describing the ' +
-        'size (diameter) of the spinner.',
-      defaultValue: '`\'beta\'`',
+      key: '`duration`',
+      description: 'Time, in seconds, required to complete one full cycle of the spinning ' +
+        'animation. Lower values describe higher animation speeds.',
+      defaultValue: '`0.65`',
     },
     {
-      key: '`pulsate`',
-      description: '`true` to enable spinner pulsation; `false` otherwise.',
-      defaultValue: '`true`',
-    },
-    {
-      key: '`transparent`',
-      description: '`true` to use a transparent spinner background (visible when the pulsation ' +
-        'transitions the spinner to an idle state); `false` to use the default almost-white ' +
-        'background. The default background is well-suited for light contexts but not dark ' +
-        'contexts.',
-      defaultValue: '`false`',
+      key: '`thickness`',
+      description: 'Width, in pixels, of the spinner ring.',
+      defaultValue: '`3`',
     },
     {
       key: '`style`',

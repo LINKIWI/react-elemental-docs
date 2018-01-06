@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'docker.internal.kevinlin.info/infra/ci-base:0.1.0'
+            image 'docker.internal.kevinlin.info/infra/ci-base:0.1.1'
             label 'docker-executor'
             args '-v $EXECUTOR_SSH_DIR:$CONTAINER_SSH_DIR:ro'
         }

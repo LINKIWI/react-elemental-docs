@@ -29,46 +29,28 @@ const SpinnerExample = () => (
 
     <Spacing size="small" bottom>
       <Spacing size="small" right inline>
-        <Spinner size="delta" color={colors.green} />
+        <Spinner size="delta" accentColor={colors.green} thickness={1} />
       </Spacing>
       <Text color="gray50" size="kilo" uppercase bold inline>
-        Succeeding
+        Thin spinner
       </Text>
     </Spacing>
 
     <Spacing size="small" bottom>
       <Spacing size="small" right inline>
-        <Spinner size="delta" color={colors.red} />
+        <Spinner size="alpha" accentColor={colors.purple} thickness={5} />
       </Spacing>
       <Text color="gray50" size="kilo" uppercase bold inline>
-        Erroring
+        Thick spinner
       </Text>
     </Spacing>
 
     <Spacing size="small" bottom>
       <Spacing size="small" right inline>
-        <Spinner size="delta" color={colors.orange} />
+        <Spinner size="delta" accentColor={colors.red} duration={1.2} />
       </Spacing>
       <Text color="gray50" size="kilo" uppercase bold inline>
-        Why not orange?
-      </Text>
-    </Spacing>
-
-    <Spacing size="small" bottom>
-      <Spacing size="small" right inline>
-        <Spinner size="delta" color={colors.purple} transparent />
-      </Spacing>
-      <Text color="gray50" size="kilo" uppercase bold inline>
-        Transparent background
-      </Text>
-    </Spacing>
-
-    <Spacing size="small" bottom>
-      <Spacing size="small" right inline>
-        <Spinner size="delta" color={colors.green} pulsate={false} />
-      </Spacing>
-      <Text color="gray50" size="kilo" uppercase bold inline>
-        Disabled pulsation
+        Slow spinner
       </Text>
     </Spacing>
   </div>
