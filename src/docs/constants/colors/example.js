@@ -1,5 +1,5 @@
 import React from 'react';
-import { colors, Spacing, Spinner, Tag, Text } from 'react-elemental';
+import { colors, Pulsator, Spacing, Tag, Text } from 'react-elemental';
 
 const GRAYSCALE_COLORS = [
   'white',
@@ -33,10 +33,10 @@ const ColorsExample = () => (
           bottom
         >
           <Spacing right inline>
-            <Spinner
+            <Pulsator
               color={colors[gray]}
               style={{ display: 'inherit' }}
-              pulsate={false}
+              inactive
             />
           </Spacing>
           <Text inline>
