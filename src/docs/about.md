@@ -4,6 +4,20 @@ It is also built with customizability and flexibility in mind. All components pr
 
 For additional documentation, see the [`README.md`](https://github.com/LINKIWI/react-elemental/blob/master/README.md) and [`CHANGELOG.md`](https://github.com/LINKIWI/react-elemental/blob/master/CHANGELOG.md) on [Github](https://github.com/LINKIWI/react-elemental).
 
+### Examples
+
+![Orion](https://static.kevinlin.info/files/blog/react-elemental/orion.png)
+
+![Skycontrol](https://static.kevinlin.info/files/blog/react-elemental/skycontrol.png)
+
+![Skyvis](https://static.kevinlin.info/files/blog/react-elemental/skyvis.png)
+
+![Gatekeeper](https://static.kevinlin.info/files/blog/react-elemental/gatekeeper.png)
+
+![Linkr](https://static.kevinlin.info/files/blog/react-elemental/linkr.png)
+
+See more at the [Examples](!local!/examples) page.
+
 ### Fonts
 
 React Elemental has standard primary and secondary typefaces available in the [npm module here](https://www.npmjs.com/package/react-elemental-fonts) ([Github](https://github.com/LINKIWI/react-elemental-fonts)), but usage is optional. The below instructions assume you are using these fonts, but you may choose to use any font you like. They are not bundled directly with React Elemental in order to cut down on bundle size, in case you choose to use your own fonts.
@@ -16,27 +30,26 @@ First, install the Elemental core package and Elemental fonts package:
 $ npm install --save react-elemental react-elemental-fonts
 ```
 
-Next, we need to `bootstrap` the UI library. This is necessary because some styling (like `@font-face` declarations) need to be applied globally with injected CSS and cannot be inline styled.
+Surround your application with a top-level `Elemental` component (this works on the server too). This performs some stateful initialization procedures including some style injections, necessary because some styling (like `@font-face` declarations) need to be applied globally with CSS and cannot be inline styled.
 
-As early as possible in your client-side rendering path, invoke the `bootstrap` function, optionally with override parameters as documented [in the README](https://github.com/LINKIWI/react-elemental/blob/master/README.md).
+Custom configuration parameters can be specified as props of the `Elemental` component as documented [in the README](https://github.com/LINKIWI/react-elemental/blob/master/README.md).
 
 For example,
 
 ```jsx
 import React, { Component } from 'react';
-import { bootstrap } from 'react-elemental';
-import karlaBold from 'react-elemental-fonts/karla-bold';
-import karlaRegular from 'react-elemental-fonts/karla-regular';
-import sourceCodeProMedium from 'react-elemental-fonts/source-code-pro-medium';
-import sourceCodeProRegular from 'react-elemental-fonts/source-code-pro-regular';
+import { Elemental } from 'react-elemental';
+import {
+  karlaBold,
+  karlaRegular,
+  sourceCodeProMedium,
+  sourceCodeProRegular,
+} from 'react-elemental-fonts';
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-
-    // You may invoke this function without any parameters if you don't want to use the standard
-    // react-elemental fonts.
-    bootstrap({
+// You can omit the fontOpts prop if you don't want to use the standard fonts.
+const App = () => (
+  <Elemental
+    fontOpts={{
       primary: {
         regular: karlaRegular,
         bold: karlaBold,
@@ -45,16 +58,13 @@ export default class App extends Component {
         regular: sourceCodeProRegular,
         bold: sourceCodeProMedium,
       },
-    });
-  }
+    }}
+  >
+    ...
+  </Elemental>
+);
 
-  render() {
-    return (
-      ...
-    );
-  }
-}
-
+export default App;
 ```
 
 That's it! No other configuration is necessary. You can now use the Elemental UI components in any of your components. Try, for example:
