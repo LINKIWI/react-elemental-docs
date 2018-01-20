@@ -7,7 +7,7 @@ import { Spacing, Text } from 'react-elemental';
  */
 const List = ({ ordered, children }) => {
   const items = Array.isArray(children) ? children.map((li, idx) => (
-    <Spacing size="tiny" key={li.key} bottom={idx < children.length - 1}>
+    <Spacing key={li.key} size="tiny" bottom={idx < children.length - 1}>
       {li}
     </Spacing>
   )) : children;
