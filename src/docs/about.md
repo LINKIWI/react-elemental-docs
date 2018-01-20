@@ -1,6 +1,6 @@
 `react-elemental` is a modern, flat, UI library built for React. It is built for maximum development velocity: there is no CSS to import and no additional parameters to add to your Webpack configuration. React Elemental has first-class support for ES6/JSX and works effortlessly with SSR.
 
-It is also built with customizability and flexibility in mind. All components provide APIs for style and behavior overrides, and they transparently proxy all non-component props to the underlying container.
+It is also built with customizability and flexibility in mind. All components provide APIs for style and behavior overrides, and they transparently proxy all non-component props to the underlying container. By limiting the scope of responsibility of the library, it is also lightweight--there is only one necessary dependency.
 
 For additional documentation, see the [`README.md`](https://github.com/LINKIWI/react-elemental/blob/master/README.md) and [`CHANGELOG.md`](https://github.com/LINKIWI/react-elemental/blob/master/CHANGELOG.md) on [Github](https://github.com/LINKIWI/react-elemental).
 
