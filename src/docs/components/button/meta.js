@@ -36,12 +36,6 @@ export default {
       defaultValue: '`{}`',
     },
     {
-      key: '`onClick`',
-      description: 'Callback function to invoke with a standard button click event when the ' +
-        'button is clicked.',
-      defaultValue: '`() => {}`',
-    },
-    {
       key: '`children`',
       description: 'Optional React element to render within the button, in addition to the text ' +
         '(if specified).',
