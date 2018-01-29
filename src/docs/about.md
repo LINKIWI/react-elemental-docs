@@ -6,15 +6,15 @@ For additional documentation, see the [`README.md`](https://github.com/LINKIWI/r
 
 ### Examples
 
-![Orion](https://static.kevinlin.info/files/blog/react-elemental/orion.png)
+![Orion](https://static.kevinlin.info/blog/react-elemental/orion.png)
 
-![Skycontrol](https://static.kevinlin.info/files/blog/react-elemental/skycontrol.png)
+![Skycontrol](https://static.kevinlin.info/blog/react-elemental/skycontrol.png)
 
-![Skyvis](https://static.kevinlin.info/files/blog/react-elemental/skyvis.png)
+![Skyvis](https://static.kevinlin.info/blog/react-elemental/skyvis.png)
 
-![Gatekeeper](https://static.kevinlin.info/files/blog/react-elemental/gatekeeper.png)
+![Gatekeeper](https://static.kevinlin.info/blog/react-elemental/gatekeeper.png)
 
-![Linkr](https://static.kevinlin.info/files/blog/react-elemental/linkr.png)
+![Linkr](https://static.kevinlin.info/blog/react-elemental/linkr.png)
 
 See more at the [Examples](!local!/examples) page.
 
