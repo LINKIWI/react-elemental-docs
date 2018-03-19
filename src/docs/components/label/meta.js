@@ -1,6 +1,7 @@
 export default {
   name: 'Label',
   description: 'Labels provide textual annotations on form input elements.',
+  source: 'https://github.com/LINKIWI/react-elemental/blob/master/src/components/label.js',
   props: [
     {
       key: '`label`',

@@ -2,6 +2,7 @@ export default {
   name: 'Tooltip',
   description: 'Tooltips are used to provide contextual information on specific elements for ' +
     'purposes of user education.',
+  source: 'https://github.com/LINKIWI/react-elemental/blob/master/src/components/tooltip.js',
   props: [
     {
       key: '`contents`',

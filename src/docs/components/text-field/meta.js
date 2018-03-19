@@ -1,6 +1,7 @@
 export default {
   name: 'TextField',
   description: 'Text fields are used for accepting user text input.',
+  source: 'https://github.com/LINKIWI/react-elemental/blob/master/src/components/text-field.js',
   props: [
     {
       key: '`error`',

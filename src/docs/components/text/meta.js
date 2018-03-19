@@ -1,6 +1,7 @@
 export default {
   name: 'Text',
   description: 'Text components provide abstractions over typography.',
+  source: 'https://github.com/LINKIWI/react-elemental/blob/master/src/components/text.js',
   props: [
     {
       key: '`secondary`',

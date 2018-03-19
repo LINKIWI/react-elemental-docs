@@ -1,6 +1,7 @@
 export default {
   name: 'Pulsator',
   description: 'Pulsators serve as activity status indicators.',
+  source: 'https://github.com/LINKIWI/react-elemental/blob/master/src/components/pulsator.js',
   props: [
     {
       key: '`color`',

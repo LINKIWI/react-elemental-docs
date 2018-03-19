@@ -1,6 +1,7 @@
 export default {
   name: 'Spacing',
   description: 'Spacing elements wrap standard margin and padding sizes for consistent layouts.',
+  source: 'https://github.com/LINKIWI/react-elemental/blob/master/src/components/spacing.js',
   props: [
     {
       key: '`size`',

@@ -2,6 +2,7 @@ export default {
   name: 'Spinner',
   description: 'Spinners indicate indeterminate progress when there is no clearly defined ' +
     'container in the interface.',
+  source: 'https://github.com/LINKIWI/react-elemental/blob/master/src/components/spinner.js',
   props: [
     {
       key: '`size`',

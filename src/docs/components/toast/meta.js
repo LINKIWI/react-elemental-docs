@@ -1,6 +1,7 @@
 export default {
   name: 'Toast',
   description: 'Toasts are used to present temporary notification alerts.',
+  source: 'https://github.com/LINKIWI/react-elemental/blob/master/src/components/toast.js',
   props: [
     {
       key: '`color`',

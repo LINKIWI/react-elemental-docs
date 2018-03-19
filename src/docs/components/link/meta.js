@@ -1,6 +1,7 @@
 export default {
   name: 'Link',
   description: 'Links are textual prompts for navigation events.',
+  source: 'https://github.com/LINKIWI/react-elemental/blob/master/src/components/link.js',
   props: [
     {
       key: '`type`',

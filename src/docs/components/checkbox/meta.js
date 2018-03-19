@@ -1,6 +1,7 @@
 export default {
   name: 'Checkbox',
   description: 'Checkboxes denote opt-in choices controlled by the user.',
+  source: 'https://github.com/LINKIWI/react-elemental/blob/master/src/components/checkbox.js',
   props: [
     {
       key: '`checked`',

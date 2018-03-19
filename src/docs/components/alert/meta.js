@@ -1,6 +1,7 @@
 export default {
   name: 'Alert',
   description: 'Alerts are used to educate the user about the current state of the application.',
+  source: 'https://github.com/LINKIWI/react-elemental/blob/master/src/components/alert.js',
   props: [
     {
       key: '`type`',

@@ -1,6 +1,7 @@
 export default {
   name: 'Tag',
   description: 'Tags serve as simple, textual status indicators.',
+  source: 'https://github.com/LINKIWI/react-elemental/blob/master/src/components/tag.js',
   props: [
     {
       key: '`outlineColor`',

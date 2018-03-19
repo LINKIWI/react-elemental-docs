@@ -1,6 +1,7 @@
 export default {
   name: 'TextArea',
   description: 'Allow the user to enter an arbitrary-length text blob.',
+  source: 'https://github.com/LINKIWI/react-elemental/blob/master/src/components/text-area.js',
   props: [
     {
       key: '`error`',

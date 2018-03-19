@@ -1,6 +1,7 @@
 export default {
   name: 'Modal',
   description: 'Modals are used to present temporarily-relevant UI elements in a overlayed dialog.',
+  source: 'https://github.com/LINKIWI/react-elemental/blob/master/src/components/modal.js',
   props: [
     {
       key: '`size`',

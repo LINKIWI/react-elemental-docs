@@ -1,6 +1,7 @@
 export default {
   name: 'LoadingBar',
   description: 'Loading bars indicate indeterminate progress.',
+  source: 'https://github.com/LINKIWI/react-elemental/blob/master/src/components/loading-bar.js',
   props: [
     {
       key: '`color`',

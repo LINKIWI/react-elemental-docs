@@ -1,6 +1,7 @@
 export default {
   name: 'Button',
   description: 'Buttons convey user actionability.',
+  source: 'https://github.com/LINKIWI/react-elemental/blob/master/src/components/button.js',
   props: [
     {
       key: '`color`',

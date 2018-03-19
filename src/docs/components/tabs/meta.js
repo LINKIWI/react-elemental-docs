@@ -1,6 +1,7 @@
 export default {
   name: 'Tabs',
   description: 'Tabs allow visual segmentation of categories within the same semantic hierarchy.',
+  source: 'https://github.com/LINKIWI/react-elemental/blob/master/src/components/tabs/index.js',
   props: [
     {
       key: '`options`',

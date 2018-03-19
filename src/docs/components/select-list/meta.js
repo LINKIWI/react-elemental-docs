@@ -2,6 +2,8 @@ export default {
   name: 'SelectList',
   description: 'Select lists are used to allow users to choose one item from a dropdown menu of ' +
     'items.',
+  source: 'https://github.com/LINKIWI/react-elemental/blob/master/src/components/select-list/' +
+    'index.js',
   props: [
     {
       key: '`placeholder`',
