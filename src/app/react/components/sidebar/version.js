@@ -7,9 +7,9 @@ import { colors, Link, Spacing, Text } from 'react-elemental';
  */
 const Version = ({ sha }) => (
   <Spacing left>
-    <Text size="kilo" color="gray60">
+    <Text size="kilo" color="gray25">
       <Link
-        activeColor={colors.gray40}
+        activeColor={colors.gray60}
         href={`https://github.com/LINKIWI/react-elemental-docs/tree/${sha}`}
       >
         {`version ${sha.substr(0, 12)}`}
