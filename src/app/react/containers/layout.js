@@ -5,7 +5,7 @@ import { colors, sizes, Button, Spacing } from 'react-elemental';
 import Menu from 'react-icons/lib/md/menu';
 import Sidebar from 'app/react/components/sidebar';
 import HeaderContainer from 'app/react/containers/header';
-import { SIDEBAR_WIDTH } from 'app/styles/sidebar';
+import { SIDEBAR_BACKGROUND_COLOR, SIDEBAR_WIDTH } from 'app/styles/sidebar';
 
 /**
  * Container enforcing consistent layout of a sidebar to the left of the main page content.
@@ -38,7 +38,7 @@ class LayoutContainer extends Component {
     const { isMenuVisible } = this.state;
 
     const baseStyle = {
-      backgroundColor: '#1F2629',
+      backgroundColor: SIDEBAR_BACKGROUND_COLOR,
       height: '100vh',
       left: 0,
       overflowX: 'hidden',

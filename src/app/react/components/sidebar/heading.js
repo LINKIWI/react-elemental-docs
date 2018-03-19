@@ -9,7 +9,7 @@ import { SIDEBAR_BACKGROUND_COLOR } from 'app/styles/sidebar';
 const SidebarHeading = ({ text }) => (
   <Spacing style={{ backgroundColor: SIDEBAR_BACKGROUND_COLOR }} left padding>
     <Spacing size="small" top bottom padding>
-      <Text style={{ letterSpacing: '1px' }} color="gray50" size="kilo" uppercase bold>
+      <Text style={{ letterSpacing: '1px' }} color="gray35" size="kilo" uppercase bold>
         {text}
       </Text>
     </Spacing>

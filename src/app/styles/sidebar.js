@@ -2,7 +2,7 @@
 export const SIDEBAR_WIDTH = '230px';
 
 // Default idle background color of the sidebar.
-export const SIDEBAR_BACKGROUND_COLOR = '#1F2629';
+export const SIDEBAR_BACKGROUND_COLOR = '#FFFFFF';
 
 // Hover/active background color of a sidebar item.
-export const SIDEBAR_HOVER_COLOR = '#2C363B';
+export const SIDEBAR_ACTIVE_COLOR = '#F7F7F7';
