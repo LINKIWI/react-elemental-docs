@@ -13,6 +13,7 @@ const About = () => (
       <Title
         name="react-elemental"
         description="Modern, flat UI library for React"
+        link="https://github.com/LINKIWI/react-elemental"
       />
     </Spacing>
 

@@ -14,6 +14,7 @@ const DocBody = ({
   name,
   description,
   props: componentProps,
+  link,
   content,
   source,
   example,
@@ -24,6 +25,7 @@ const DocBody = ({
       <Title
         name={name}
         description={description}
+        link={link}
       />
     </Spacing>
 
@@ -52,6 +54,8 @@ DocBody.propTypes = {
   description: PropTypes.string.isRequired,
   // Array of props: see PropsTable for detailed shape
   props: PropTypes.array,
+  // URL to the component's source code
+  link: PropTypes.string.isRequired,
   // Optional additional notes as Markdown
   content: PropTypes.string,
   // Code example source

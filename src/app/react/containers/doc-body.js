@@ -21,6 +21,7 @@ const DocBodyContainer = ({ docItem: { meta, source, example, content } = {}, is
         name={meta.name}
         description={meta.description}
         props={meta.props}
+        link={meta.source}
         content={content}
         source={source}
         example={example}
