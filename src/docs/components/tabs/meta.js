@@ -22,6 +22,23 @@ export default {
       defaultValue: '`() => {}`',
     },
     {
+      key: '`secondary`',
+      description: 'True to use the secondary style; false to use the primary style.',
+      defaultValue: '`false`',
+    },
+    {
+      key: '`fit`',
+      description: 'True to fit the width of each tab option to its children; false to evenly ' +
+        'space the width of each tab option, independent of child width.',
+      defaultValue: '`false`',
+    },
+    {
+      key: '`invert`',
+      description: 'Relevant to secondary style Tabs only. True to place the selection highlight ' +
+        'above the option children, rather than below the option children.',
+      defaultValue: '`false`',
+    },
+    {
       key: '`style`',
       description: 'Optional object of style overrides.',
       defaultValue: '`{}`',
