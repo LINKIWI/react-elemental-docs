@@ -78,6 +78,9 @@ module.exports = {
       inlineSource: '.js$',
     }),
     new HtmlWebpackInlineSourcePlugin(),
+    isProduction && new webpack.LoaderOptionsPlugin({
+      minimize: true,
+    }),
   ].filter(Boolean),
   devServer: {
     historyApiFallback: true,
