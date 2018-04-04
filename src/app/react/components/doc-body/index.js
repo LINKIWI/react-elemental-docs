@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Spacing } from 'react-elemental';
+import { colors, Spacing, Tag } from 'react-elemental';
 import CodeExample from 'app/react/components/doc-body/code-example';
 import Notes from 'app/react/components/doc-body/notes';
 import Title from 'app/react/components/doc-body/title';
@@ -15,6 +15,7 @@ const DocBody = ({
   description,
   props: componentProps,
   link,
+  experimental,
   content,
   source,
   example,
@@ -26,6 +27,13 @@ const DocBody = ({
         name={name}
         description={description}
         link={link}
+        annotation={experimental && (
+          <Tag
+            backgroundColor={colors.redLight}
+            outlineColor={colors.red}
+            text="Experimental"
+          />
+        )}
       />
     </Spacing>
 
@@ -56,6 +64,8 @@ DocBody.propTypes = {
   props: PropTypes.array,
   // URL to the component's source code
   link: PropTypes.string.isRequired,
+  // Whether the component API is experimental (unstable)
+  experimental: PropTypes.bool,
   // Optional additional notes as Markdown
   content: PropTypes.string,
   // Code example source
@@ -68,6 +78,7 @@ DocBody.propTypes = {
 
 DocBody.defaultProps = {
   props: [],
+  experimental: false,
   content: null,
 };
 

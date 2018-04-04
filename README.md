@@ -21,6 +21,7 @@ The `meta.js` file should default-export an object describing metadata about the
 |`name`|Name of the component.|
 |`description`|One-line description of the component.|
 |`source`|URL to the component's source code.|
+|`experimental`|*(Optional)* Any truthy value to indicate that the component API is experimental or unstable.|
 |`props[].key`|Name of a prop accepted by the component.|
 |`props[].description`|Description of that prop.|
 |`props[].defaultValue`|Default value of that prop, as it appears in `defaultProps`. Omit if the prop is required.|
