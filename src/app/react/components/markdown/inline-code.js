@@ -7,7 +7,7 @@ import { colors, Spacing, Text } from 'react-elemental';
  */
 const InlineCode = ({ value }) => (
   <Spacing size="2px" left right inline>
-    <Text style={{ backgroundColor: colors.gray5, fontSize: 'inherit' }} secondary inline>
+    <Text style={{ backgroundColor: colors.gray5, fontSize: '95%' }} secondary inline>
       <Spacing size="8px" left right inline>
         {value}
       </Spacing>

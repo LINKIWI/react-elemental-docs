@@ -68,7 +68,7 @@ export default class Header extends Component {
         <div style={{ alignItems: 'center', display: 'flex', justifyContent: 'space-between' }}>
           <Breadcrumbs
             links={[
-              { text: 'react-elemental docs', href: '/' },
+              { text: 'react elemental docs', href: '/' },
               ...this.parseBreadcrumbLinks(),
             ]}
           />
