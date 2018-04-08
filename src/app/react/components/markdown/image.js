@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Spacing } from 'react-elemental';
+import { Image as ElementalImage, Spacing } from 'react-elemental';
 
 /**
  * Rendering component for an image.
  */
 const Image = ({ src, title, alt }) => (
-  <Spacing size="small" bottom>
-    <img
+  <Spacing bottom>
+    <ElementalImage
       src={src}
       title={title}
       alt={alt}
-      style={{
-        width: '100%',
-      }}
+      width="100%"
+      style={{ margin: '0 auto', maxWidth: '1000px' }}
+      lazy
     />
   </Spacing>
 );

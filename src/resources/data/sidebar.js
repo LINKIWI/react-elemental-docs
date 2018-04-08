@@ -7,6 +7,7 @@ export const SIDEBAR_COMPONENTS_LIST = [
   { value: 'component--alert', label: 'Alert', href: '/component/alert' },
   { value: 'component--button', label: 'Button', href: '/component/button' },
   { value: 'component--checkbox', label: 'Checkbox', href: '/component/checkbox' },
+  { value: 'component--image', label: 'Image', href: '/component/image' },
   { value: 'component--label', label: 'Label', href: '/component/label' },
   { value: 'component--link', label: 'Link', href: '/component/link' },
   { value: 'component--loading-bar', label: 'LoadingBar', href: '/component/loading-bar' },
