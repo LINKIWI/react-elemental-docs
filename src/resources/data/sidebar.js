@@ -12,6 +12,7 @@ export const SIDEBAR_COMPONENTS_LIST = [
   { value: 'component--loading-bar', label: 'LoadingBar', href: '/component/loading-bar' },
   { value: 'component--modal', label: 'Modal', href: '/component/modal' },
   { value: 'component--pulsator', label: 'Pulsator', href: '/component/pulsator' },
+  { value: 'component--radio-group', label: 'RadioGroup', href: '/component/radio-group' },
   { value: 'component--select-list', label: 'SelectList', href: '/component/select-list' },
   { value: 'component--spacing', label: 'Spacing', href: '/component/spacing' },
   { value: 'component--spinner', label: 'Spinner', href: '/component/spinner' },

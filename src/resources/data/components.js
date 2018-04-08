@@ -6,6 +6,7 @@ import link from 'docs/components/link';
 import loadingBar from 'docs/components/loading-bar';
 import modal from 'docs/components/modal';
 import pulsator from 'docs/components/pulsator';
+import radioGroup from 'docs/components/radio-group';
 import selectList from 'docs/components/select-list';
 import spacing from 'docs/components/spacing';
 import spinner from 'docs/components/spinner';
@@ -17,6 +18,7 @@ import textField from 'docs/components/text-field';
 import toast from 'docs/components/toast';
 import tooltip from 'docs/components/tooltip';
 
+// Maps the URL component path to the metadata for the matching component.
 export default {
   alert,
   button,
@@ -26,6 +28,7 @@ export default {
   'loading-bar': loadingBar,
   modal,
   pulsator,
+  'radio-group': radioGroup,
   'select-list': selectList,
   spacing,
   spinner,
