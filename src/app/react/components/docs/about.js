@@ -1,6 +1,6 @@
 import React from 'react';
-import { Spacing } from 'react-elemental';
-import Title from 'app/react/components/doc-body/title';
+import { Link, Spacing } from 'react-elemental';
+import Logo from 'app/react/components/ui/logo';
 import Markdown from 'app/react/components/markdown';
 import { about } from 'docs';
 
@@ -10,11 +10,17 @@ import { about } from 'docs';
 const About = () => (
   <div>
     <Spacing size="large" bottom>
-      <Title
-        name="react-elemental"
-        description="Modern, flat UI library for React"
-        link="https://github.com/LINKIWI/react-elemental"
-      />
+      <Link
+        type="plain"
+        href="https://github.com/LINKIWI/react-elemental"
+        style={{
+          display: 'inline-block',
+          maxWidth: '350px',
+          width: '100%',
+        }}
+      >
+        <Logo style={{ width: '100%' }} />
+      </Link>
     </Spacing>
 
     <Markdown source={about} />
