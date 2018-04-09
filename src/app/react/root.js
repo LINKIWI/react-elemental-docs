@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Favicon from 'react-favicon';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import routes from 'app/react/routes';
 import { setWindowDimensions } from 'app/redux/actions/context';
+import favicon from 'resources/img/favicon';
 
 /**
  * Application root.
@@ -28,6 +30,8 @@ export class Root extends Component {
   render() {
     return (
       <div>
+        <Favicon url={favicon} />
+
         {routes}
       </div>
     );
