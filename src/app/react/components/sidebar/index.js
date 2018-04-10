@@ -15,7 +15,7 @@ const { GIT_SHA } = process.env;
 const Sidebar = ({ selected }) => (
   <Spacing size="small" top padding>
     <Spacing size="small" bottom>
-      <Heading text="react-elemental" />
+      <Heading text="react elemental" />
       <SidebarList
         items={SIDEBAR_HOME_LIST}
         selected={selected}

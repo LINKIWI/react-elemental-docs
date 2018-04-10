@@ -49,9 +49,7 @@ const DocBody = ({
       </Spacing>
     )}
 
-    <Spacing size="large" bottom>
-      <CodeExample source={source} example={example} isCompact={isCompact} />
-    </Spacing>
+    <CodeExample source={source} example={example} isCompact={isCompact} />
   </div>
 );
 

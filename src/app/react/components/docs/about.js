@@ -19,7 +19,7 @@ const About = () => (
           width: '100%',
         }}
       >
-        <Logo style={{ width: '100%' }} />
+        <Logo style={{ width: '100%' }} subtitle />
       </Link>
     </Spacing>
 

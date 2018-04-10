@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import { colors, sizes, Button, Spacing } from 'react-elemental';
 import Menu from 'react-icons/lib/md/menu';
 import Sidebar from 'app/react/components/sidebar';
-import HeaderContainer from 'app/react/containers/header';
+import Header from 'app/react/components/layout/header';
+import Footer from 'app/react/components/layout/footer';
 import { SIDEBAR_BACKGROUND_COLOR, SIDEBAR_WIDTH } from 'app/styles/sidebar';
 
 /**
@@ -37,7 +38,7 @@ class LayoutContainer extends Component {
     const { selectedSidebarItem, children, pathname, isCompact } = this.props;
     const { isMenuVisible } = this.state;
 
-    const baseStyle = {
+    const sidebarBaseStyle = {
       backgroundColor: SIDEBAR_BACKGROUND_COLOR,
       height: '100vh',
       left: 0,
@@ -48,8 +49,15 @@ class LayoutContainer extends Component {
       zIndex: 2,
     };
 
-    const compactStyle = {
+    const sidebarCompactStyle = {
       marginLeft: isMenuVisible ? 'inherit' : '-250px',
+    };
+
+    const bodyStyle = {
+      boxSizing: 'border-box',
+      flexDirection: 'column',
+      display: 'flex',
+      minHeight: '100vh',
     };
 
     const contentMargin = (isCompact && !isMenuVisible) ? '50px' : SIDEBAR_WIDTH;
@@ -58,8 +66,8 @@ class LayoutContainer extends Component {
       <div>
         <div
           style={{
-            ...baseStyle,
-            ...isCompact && compactStyle,
+            ...sidebarBaseStyle,
+            ...isCompact && sidebarCompactStyle,
           }}
         >
           {isCompact && (
@@ -92,12 +100,16 @@ class LayoutContainer extends Component {
 
         <div style={{ marginLeft: contentMargin, transition: 'all 0.15s ease' }}>
           <Spacing size="huge" left right padding>
-            <Spacing top bottom padding>
+            <Spacing style={bodyStyle} top padding>
               <Spacing size="large" bottom>
-                <HeaderContainer pathname={pathname} isCompact={isCompact} />
+                <Header pathname={pathname} isCompact={isCompact} />
               </Spacing>
 
-              {children}
+              <Spacing style={{ flexGrow: 1 }} size="large" bottom>
+                {children}
+              </Spacing>
+
+              <Footer />
             </Spacing>
           </Spacing>
         </div>
