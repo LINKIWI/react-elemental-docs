@@ -10,6 +10,11 @@ export default {
       defaultValue: '`null`',
     },
     {
+      key: '`secondary`',
+      description: '`true` to use the secondary `TextArea` style; `false` otherwise.',
+      defaultValue: '`false`',
+    },
+    {
       key: '`style`',
       description: 'Optional object of style overrides.',
       defaultValue: '`{}`',
