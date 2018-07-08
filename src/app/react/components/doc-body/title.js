@@ -7,7 +7,7 @@ import { Link, Spacing, Text } from 'react-elemental';
  */
 const Title = ({ name, description, link, annotation }) => (
   <div>
-    <div style={{ alignItems: 'end', display: 'flex' }}>
+    <div style={{ alignItems: 'flex-end', display: 'flex' }}>
       <Text size="beta" bold>
         {link ? (
           <Link type="plain" style={{ opacity: 1 }} href={link}>
