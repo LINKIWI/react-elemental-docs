@@ -18,7 +18,7 @@ export default {
       key: '`inactive`',
       description: '`true` to disable pulsation and always display the pulsation color; `false` ' +
         'otherwise for normal pulsation behavior.',
-      defaultValue: '`true`',
+      defaultValue: '`false`',
     },
     {
       key: '`transparent`',
