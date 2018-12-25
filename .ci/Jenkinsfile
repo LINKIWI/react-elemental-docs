@@ -20,7 +20,6 @@ pipeline {
                         NODE_ENV = 'production'
                         GIT_SHA = "$GIT_COMMIT"
                         CLIENT_SENTRY_DSN = credentials('react-elemental-docs--sentry-dsn')
-                        ROUTING_BASE_PATH = '/react-elemental-docs'
                         PIWIK_URL = 'https://analytics.kevinlin.info'
                         PIWIK_SITE_ID = '4'
                         PIWIK_CLIENT_TRACKER_NAME = 'client'
