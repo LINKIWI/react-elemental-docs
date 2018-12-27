@@ -7,7 +7,23 @@ pipeline {
         }
     }
 
+    options {
+        withAWS(
+            endpointUrl: 'https://storage.kevinlin.info',
+            credentials: 'storage-internal',
+        )
+    }
+
     stages {
+        stage('Environment') {
+            steps {
+                s3Download(
+                    bucket: 'internal',
+                    path: 'resources/react-elemental-docs/.env',
+                    file: '.env',
+                )
+            }
+        }
         stage('Install') {
             steps {
                 sh 'npm-s3 install'
@@ -15,24 +31,6 @@ pipeline {
         }
         stage('Test') {
             parallel {
-                stage('Build') {
-                    environment {
-                        NODE_ENV = 'production'
-                        GIT_SHA = "$GIT_COMMIT"
-                        CLIENT_SENTRY_DSN = credentials('react-elemental-docs--sentry-dsn')
-                        PIWIK_URL = 'https://analytics.kevinlin.info'
-                        PIWIK_SITE_ID = '4'
-                        PIWIK_CLIENT_TRACKER_NAME = 'client'
-                        PIWIK_SERVER_TRACKER_NAME = 'server'
-                        REACT_ELEMENTAL_VERSION = sh(
-                            script: 'cat package.json | jq -r \'.dependencies[\"react-elemental\"]\'',
-                            returnStdout: true
-                        ).trim()
-                    }
-                    steps {
-                        sh 'npm run build'
-                    }
-                }
                 stage('Lint') {
                     steps {
                         sh 'npm run lint'
@@ -43,6 +41,29 @@ pipeline {
                         sh 'npm run test'
                     }
                 }
+            }
+        }
+        stage('Build') {
+            environment {
+                NODE_ENV = 'production'
+                GIT_SHA = "$GIT_COMMIT"
+                REACT_ELEMENTAL_VERSION = sh(
+                    script: 'cat package.json | jq -r \'.dependencies[\"react-elemental\"]\'',
+                    returnStdout: true
+                ).trim()
+            }
+            steps {
+                sh 'npm run build'
+            }
+        }
+        stage('Release') {
+            steps {
+                sh 'tar -czf release.tar.gz dist/'
+                s3Upload(
+                    bucket: 'internal',
+                    path: "deploy/${env.JOB_NAME}/${env.GIT_COMMIT}/",
+                    file: 'release.tar.gz',
+                )
             }
         }
         stage('Deploy') {
@@ -60,12 +81,6 @@ pipeline {
                 sh 'git push origin HEAD'
                 sh 'git push github HEAD'
             }
-        }
-    }
-
-    post {
-        success {
-            archive 'index.html'
         }
     }
 }
