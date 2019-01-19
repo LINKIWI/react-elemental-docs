@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { compose } from 'redux';
 import Favicon from 'react-favicon';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import routes from 'app/react/routes';
 import { setWindowDimensions } from 'app/redux/actions/context';
+import withScrollReset from 'app/react/hoc/with-scroll-reset';
 import favicon from 'resources/img/favicon';
 
 /**
@@ -42,4 +44,8 @@ const mapDispatchToProps = (dispatch) => ({
   handleWindowDimensionsChange: (width, height) => dispatch(setWindowDimensions(width, height)),
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(Root));
+export default compose(
+  withRouter,
+  withScrollReset,
+  connect(null, mapDispatchToProps),
+)(Root);
