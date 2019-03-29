@@ -3,7 +3,6 @@ export default {
   description: 'Radio groups allow selection of a single option from a pool of multiple values.',
   source: 'https://github.com/LINKIWI/react-elemental/blob/master/src/components/radio-group/' +
     'index.js',
-  experimental: true,
   props: [
     {
       key: '`options`',

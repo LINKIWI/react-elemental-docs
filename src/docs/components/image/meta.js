@@ -2,7 +2,6 @@ export default {
   name: 'Image',
   description: 'Presentational wrapper around standard images.',
   source: 'https://github.com/LINKIWI/react-elemental/blob/master/src/components/image.js',
-  experimental: true,
   props: [
     {
       key: '`alt`',
