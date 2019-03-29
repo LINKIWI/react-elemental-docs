@@ -58,10 +58,10 @@ pipeline {
         }
         stage('Release') {
             environment {
-                DEPLOY_URL = 'react-elemental-docs.static.kevinlin.info'
+                DOMAIN = 'react-elemental-docs.static.kevinlin.info'
             }
             steps {
-                sh "echo ${DEPLOY_URL} > CNAME"
+                sh "echo ${DOMAIN} > CNAME"
                 sh 'cp dist/index.html .'
                 sh 'cp dist/index.html 404.html'
                 sh 'tar -czf release.tar.gz index.html 404.html CNAME'
@@ -73,6 +73,9 @@ pipeline {
             }
         }
         stage('Deploy') {
+            environment {
+                GITHUB_REMOTE = 'git@github.com:LINKIWI/react-elemental-docs.git'
+            }
             steps {
                 sh 'git fetch --all'
                 sh 'git checkout -f static'
@@ -87,8 +90,8 @@ pipeline {
                 sh 'tar xvf release.tar.gz'
                 sh 'rm release.tar.gz'
                 sh 'git add -A'
-                sh "git commit -m \"[automatic commit] ${GIT_BRANCH}:${GIT_COMMIT}\" || :"
-                sh 'git remote add github git@github.com:LINKIWI/react-elemental-docs.git'
+                sh "git commit -m \"[automatic commit] ${GIT_BRANCH}:${GIT_COMMIT}\" -n || :"
+                sh "git remote add github ${GITHUB_REMOTE}"
                 sh 'git push origin HEAD'
                 sh 'git push github HEAD:gh-pages'
             }
