@@ -74,7 +74,7 @@ pipeline {
         }
         stage('Deploy') {
             environment {
-                GITHUB_REMOTE = 'git@github.com:LINKIWI/react-elemental-docs.git'
+                GITHUB_REMOTE = 'git@github.com:LINKIWI/react-elemental-docs-static.git'
             }
             steps {
                 sh 'git fetch --all'
@@ -93,7 +93,7 @@ pipeline {
                 sh "git commit -m \"[automatic commit] ${GIT_BRANCH}:${GIT_COMMIT}\" -n || :"
                 sh "git remote add github ${GITHUB_REMOTE}"
                 sh 'git push origin HEAD'
-                sh 'git push github HEAD:gh-pages'
+                sh 'git push github HEAD:master'
             }
         }
     }
