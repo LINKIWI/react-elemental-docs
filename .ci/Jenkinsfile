@@ -1,9 +1,8 @@
 pipeline {
     agent {
         docker {
-            image 'docker.internal.kevinlin.info/infra/ci-base:0.1.1'
+            image 'docker.internal.kevinlin.info/infra/ci-base:0.2.6'
             label 'docker-executor'
-            args '-v $EXECUTOR_SSH_DIR:$CONTAINER_SSH_DIR:ro'
         }
     }
 
@@ -57,14 +56,10 @@ pipeline {
             }
         }
         stage('Release') {
-            environment {
-                DOMAIN = 'react-elemental-docs.static.kevinlin.info'
-            }
             steps {
-                sh "echo ${DOMAIN} > CNAME"
                 sh 'cp dist/index.html .'
                 sh 'cp dist/index.html 404.html'
-                sh 'tar -czf release.tar.gz index.html 404.html CNAME'
+                sh 'tar -czf release.tar.gz index.html 404.html'
                 s3Upload(
                     bucket: 'internal',
                     path: "deploy/${env.JOB_NAME}/${env.GIT_COMMIT}/",
@@ -73,27 +68,18 @@ pipeline {
             }
         }
         stage('Deploy') {
-            environment {
-                GITHUB_REMOTE = 'git@github.com:LINKIWI/react-elemental-docs-static.git'
-            }
             steps {
-                sh 'git fetch --all'
-                sh 'git checkout -f static'
-                sh 'git reset --hard origin/static'
-                sh 'git rm -rf .'
-                sh 'git clean -fxd'
-                s3Download(
-                    bucket: 'internal',
-                    path: "deploy/${env.JOB_NAME}/${env.GIT_COMMIT}/release.tar.gz",
-                    file: 'release.tar.gz',
+                build(
+                    job: 'task--static-deploy',
+                    parameters: [
+                        string(name: 'RELEASE_ARTIFACT', value: "${env.JOB_NAME}"),
+                        string(name: 'RELEASE_VERSION', value: "${env.GIT_COMMIT}"),
+                        string(name: 'DOMAIN', value: 'react-elemental-docs.static.kevinlin.info'),
+                        string(name: 'GIT_REMOTE_INTERNAL', value: "${env.GIT_URL}"),
+                        string(name: 'GIT_REMOTE_GITHUB', value: 'git@github.com:LINKIWI/react-elemental-docs-static.git'),
+                    ],
+                    wait: true,
                 )
-                sh 'tar xvf release.tar.gz'
-                sh 'rm release.tar.gz'
-                sh 'git add -A'
-                sh "git commit -m \"[automatic commit] ${GIT_BRANCH}:${GIT_COMMIT}\" -n || :"
-                sh "git remote add github ${GITHUB_REMOTE}"
-                sh 'git push origin HEAD'
-                sh 'git push github HEAD:master'
             }
         }
     }
